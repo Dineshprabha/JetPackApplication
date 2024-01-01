@@ -13,27 +13,32 @@
         android:theme="@style/Theme.JetPackApplication"
         tools:targetApi="31">
         <activity
+            android:name=".FourthActivity"
+            android:exported="true"
+            android:label="@string/title_activity_fourth"
+            android:theme="@style/Theme.JetPackApplication">
+        </activity>
+        <activity
             android:name=".ThirdActivity"
             android:exported="true"
             android:label="@string/title_activity_third"
-            android:theme="@style/Theme.JetPackApplication">
+            android:theme="@style/Theme.JetPackApplication"/>
+        <activity
+            android:name=".SecondActivity"
+            android:exported="true"
+            android:label="@string/title_activity_second"
+            android:theme="@style/Theme.JetPackApplication"/>
+        <activity
+            android:name=".MainActivity"
+            android:exported="true"
+            android:label="@string/app_name"
+            android:theme="@style/Theme.JetPackApplication" >
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity
-            android:name=".SecondActivity"
-            android:exported="true"
-            android:label="@string/title_activity_second"
-            android:theme="@style/Theme.JetPackApplication">
-        </activity>
-        <activity
-            android:name=".MainActivity"
-            android:exported="true"
-            android:label="@string/app_name"
-            android:theme="@style/Theme.JetPackApplication" />
     </application>
 
 </manifest>

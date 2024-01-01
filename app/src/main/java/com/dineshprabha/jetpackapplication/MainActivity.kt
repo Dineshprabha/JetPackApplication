@@ -41,6 +41,7 @@ import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import androidx.lifecycle.ViewModelProvider
+import com.dineshprabha.jetpackapplication.login.LoginScreen
 import com.dineshprabha.jetpackapplication.ui.theme.JetPackApplicationTheme
 
 @OptIn(ExperimentalMaterial3Api::class)
@@ -51,57 +52,11 @@ class MainActivity : ComponentActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContent {
-            val state = viewModel.state.value
             JetPackApplicationTheme {
-                //Layout items in jetpack compose
-                Column(modifier = Modifier.fillMaxSize()){
-
-//                    var textState by rememberSaveable {
-//                        mutableStateOf("")
-//                    }
-//
-//                    val namesListState = remember {
-//                        mutableStateListOf<String>()
-//                    }
-
-                    LazyColumn(modifier = Modifier
-                        .fillMaxWidth()
-                        .weight(1f)
-                    ){
-                        items(state.namesListState.size){
-                            Text(text = state.namesListState[it])
-                        }
-                    }
-                    MyTextField(
-                        textValue = state.textState,
-                        onValueChanged = {
-                            viewModel.updateText(it)
-                        },
-                        onAddClick = {
-                            viewModel.updateNamesList()
-                            viewModel.updateText("")
-                        }
-                    )
-                }
+                LoginScreen()
             }
         }
     }
 
-    @Composable
-    fun MyTextField(
-        textValue : String,
-        onValueChanged : (String) -> Unit,
-        onAddClick:() -> Unit
-    ) {
-        TextField(value = textValue, onValueChange = {
-            onValueChanged(it)
-        },
-            modifier = Modifier.fillMaxWidth(),
-            trailingIcon = {
-                Icon(imageVector = Icons.Default.Add, contentDescription = null,
-                    modifier = Modifier.clickable { onAddClick() })
-            }
-        )
-    }
 }
 
